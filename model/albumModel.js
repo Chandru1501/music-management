@@ -5,10 +5,10 @@ const sequelize = require('../utills/database');
 const albums = sequelize.define("albums",{
 
      album_id: {
-        type: Sequelize.INTEGER,
-        // type: Sequelize.UUID,
-        // defaultValue : Sequelize.UUIDV4,
-        autoIncrement: true,
+        // type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
+        defaultValue : Sequelize.UUIDV4,
+        // autoIncrement: true,
         allowNull: false,
         primaryKey: true,
       },

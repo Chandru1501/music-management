@@ -5,10 +5,10 @@ const sequelize = require('../utills/database');
 const favorites = sequelize.define("favorites",{
 
         favorite_id: {
-        type: Sequelize.INTEGER,
-        // type: Sequelize.UUID,
-        // defaultValue : Sequelize.UUIDV4,
-        autoIncrement: true,
+        // type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
+        defaultValue : Sequelize.UUIDV4,
+        // autoIncrement: true,
         allowNull: false,
         primaryKey: true,
       },
