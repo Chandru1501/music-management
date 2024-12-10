@@ -6,7 +6,6 @@ const { Sequelize, Op } = require('sequelize');
 const functions = require('../middlewares/functions.js');
 
 const numberRegex = /^-?\d+(\.\d+)?$/;
-const yearRegex = /^(19|20)\d{2}$/;
 const boolRegex = /^(true|false)$/;
 
 exports.addTrack = async (req,res,next)=>{

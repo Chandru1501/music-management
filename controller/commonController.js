@@ -4,12 +4,12 @@ const jwt = require('jsonwebtoken');
 const functions = require('../middlewares/functions.js');
 
 async function generateAccessToken(id, email, role) {
-return jwt.sign(
-    { id: id, email: email, role: role },
-    process.env.JWT_TOKEN_SECRECT,{
-    expiresIn: process.env.TOKEN_EXPIRATION,
-    }
-);
+    return jwt.sign(
+        { id: id, email: email, role: role },
+        process.env.JWT_TOKEN_SECRECT,{
+        expiresIn: process.env.TOKEN_EXPIRATION,
+        }
+    );
 }
 
 exports.logout = async (req,res,next)=>{
@@ -103,6 +103,7 @@ exports.login = async (req, res, next) => {
                 res.status(404).json({ message: "User not found.", status:404, data:null, error:null });
             }
         }
+        
     } catch (err) {
         console.log(err);
         res.status(500).json({ message : "Internal error occured please try later.", data : null, status:500, error: "internal error occured" });

@@ -39,11 +39,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 const corsOptions = {
-    // origin: [
-    //     "http://localhost:2395",
-    //     "http://localhost:8275",
-    //     "http://localhost:6290",
-    // ],
+    // origin: [],
     origin: "*",
     methods: ["GET", "POST", "PUT", "OPTION", "HEAD", "PATCH", "DELETE"],
     allowedHeaders: ["Accept", "Content-Type", "Authorization", "device"],
@@ -61,12 +57,6 @@ app.use('/api/v1/',commonRoutes);
 
 userModel.hasMany(favoriteModel,{ foreignKey: 'userId', allowNull: false });
 
-// trackModel.hasMany(favoriteModel,{ foreignKey: 'trackId' });
-
-// albumModel.hasMany(favoriteModel,{ foreignKey: 'albumId' });
-
-// artistModel.hasMany(favoriteModel,{ foreignKey: 'artistId' });
-
 artistModel.hasMany(albumModel,{ foreignKey: 'artistId', allowNull: false });
 
 albumModel.belongsTo(artistModel,{ foreignKey: 'artistId', allowNull: false });
@@ -80,7 +70,9 @@ albumModel.hasMany(trackModel,{ foreignKey: 'albumId', allowNull: false } );
 trackModel.belongsTo(albumModel,{ foreignKey: 'albumId', allowNull: false } );
 
 favoriteModel.belongsTo(artistModel, { foreignKey: 'item_id', constraints: false });
+
 favoriteModel.belongsTo(albumModel, { foreignKey: 'item_id', constraints: false });
+
 favoriteModel.belongsTo(trackModel, { foreignKey: 'item_id', constraints: false });
 
 // sequelize.sync({ force : true })
@@ -93,4 +85,4 @@ sequelize.sync()
 .catch((err)=>{
   console.log(err);
   console.log("some error occured");
-})
+});

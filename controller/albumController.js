@@ -156,6 +156,7 @@ exports.getAlbum = async (req,res,next) => {
             return res.status(403)
             .json({ message: `Forbidden Access/Operation not allowed.`, status:403, error:null, data:null });  
         }
+        
     } catch (err) {
         console.log(err);
         res.status(500)

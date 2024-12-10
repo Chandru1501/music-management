@@ -5,17 +5,14 @@ const sequelize = require('../utills/database');
 const users = sequelize.define("users",{
 
       user_id: {
-        // type: Sequelize.INTEGER,
         type: Sequelize.UUID,
         defaultValue : Sequelize.UUIDV4,
-        // autoIncrement: true,
         allowNull: false,
         primaryKey: true,
       },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
-        // unique : true
       },
       password: {
         type: Sequelize.STRING,
@@ -27,9 +24,6 @@ const users = sequelize.define("users",{
         defaultValue: 'Viewer',
       },
 },
-// {
-//     paranoid: true,
-// }
 );
 
 

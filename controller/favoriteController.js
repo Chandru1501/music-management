@@ -4,8 +4,6 @@ const albumModel = require('../model/albumModel');
 const trackModel = require('../model/trackModel');
 const favoriteModel = require('../model//favoriteModel');
 const functions = require('../middlewares/functions.js');
-const { Sequelize, Op, where } = require('sequelize');
-
 
 const categoryMapping = {
     artist: artistModel,

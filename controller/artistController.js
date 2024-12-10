@@ -86,6 +86,7 @@ exports.getAllArtists = async (req,res,next) => {
         } else {
             return res.status(403).json({ message: `Forbidden Access/Operation not allowed.`, status:403, error:null, data:null });  
         }
+
     } catch (err) {
         console.log(err);
         res.status(500).json({ message : "Internal error occured please try later.", data : null, status:500, error: "internal error occured" });
@@ -105,6 +106,7 @@ exports.getArtist = async (req,res,next) => {
             attributes : ['artist_id','name','grammy','hidden']
         });
         console.log(artist);
+        
            if(artist){
                 res.status(200)
                 .json({ message : "Artist fetched successfully", status:200, data : artist, error:null });
@@ -116,6 +118,7 @@ exports.getArtist = async (req,res,next) => {
             return res.status(403)
             .json({ message: `Forbidden Access/Operation not allowed.`, status:403, error:null, data:null });  
         }
+
     } catch (err) {
         console.log(err);
         res.status(500)

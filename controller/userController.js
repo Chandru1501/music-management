@@ -4,9 +4,7 @@ const bcrypt = require('bcrypt');
 const functions = require('../middlewares/functions.js');
 
 
-const stringRegex = /^[a-zA-Z\s]*$/;
 const numberRegex = /^-?\d+(\.\d+)?$/;
-const boolRegex = /^(true|false)$/;
 
 exports.addUser = async (req,res,next)=>{
     try {
@@ -94,6 +92,7 @@ exports.getAllUsers = async (req,res,next)=>{
                     res.status(200).json({ message : 'User retrived successfully.', status:200, error:null, data: users });
                 }
             }
+            
     } catch (err) {
         console.log(err);
         res.status(500).json({ message : "Internal error occured please try later.", data : null, status:500, error: "internal error occured" });
